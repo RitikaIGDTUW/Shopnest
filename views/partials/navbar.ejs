@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">
+          <img src="/images/logo.jpeg" alt="Logo" class="navbar-logo">
+          
+        </a>
+        <ul class=" navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class=" home" aria-current="page" href="/products">Home</a>
+          </li>
+          <%if(currentUser && currentUser.role=='seller'){%>
+            <li class="nav-item">
+              <a class=" home" href="/product/new">New</a>
+            </li>
+          <%}%>
+          <li class="nav-item">
+            <a class="home" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="home" href="/contact">Contact Us</a>
+          </li>
+          
+          
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        <div class="d-flex" role="search">
+          <% if(!currentUser){%>
+            <a href="/login" class="nav-icon mx-2">Login</a>
+          <%} else{ %>
+            <a href="#" class="nav-icon" >Hello, <%=currentUser.username%> </a>
+          
+          <a href="/user/cart" class="nav-icon mx-2">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <sup><span class="badge bg-danger"><%=currentUser.cart.length%></span></sup>
+
+          </a>
+          <a href="/logout" class="nav-icon mx-2">Logout</a>
+          <%}%>
+          
+        </div>
+      </div>
+    </div>
+  </nav>

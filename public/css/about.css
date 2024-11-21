@@ -1,0 +1,37 @@
+/* About Us page styling */
+.container h1, h2, h5 {
+  color: rgb(6, 6, 110);
+  font-family: 'poppins','Gill sans';
+  /* font-weight: bold; */
+  }
+  
+  .container p {
+    color: #1c1b1b;
+    font-family: 'poppins','Gill sans';
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card, .rounded {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h5 {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #fcc86d;
+    border:3px solid #ad720d ;
+    
+    color: #1c1b1b;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2fbafb;
+  }
+  

@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/navbar')%>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <form action="/products" method="POST" class="needs-validation new-form" novalidate> <!--sub,it button pe clilck krte hi post request action wale path pe jayegi-->
+            <fieldset>
+                <legend>Add a new product</legend>
+                <div class="mb-3">
+                    <label for="naam">Name:</label>
+                    <input type="text" class="form-control" name="name" id="naam" placeholder="name of the product" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter name field.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="img">Image:</label> <!--name ke ander wohi bhrna h jo schema me diya h-->
+                    <input type="text" class="form-control" name="img" id="img" placeholder="image URL of the product" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter image field.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="paisa">Price:</label>
+                    <input type="number" class="form-control" name="price" id="paisa" placeholder="price of the product" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter price field.
+                    </div>
+                </div>
+                <!-- Category Field -->
+                <div class="mb-3">
+                    <label for="category">Category:</label>
+                    <select class="form-control" name="category" id="category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Jewelleries">Jewelleries</option>
+                        <option value="home_decor">home_decor</option>
+                        <option value="T-Shirts">T-Shirts</option>
+                        <option value="Women-Dress">Women-Dress</option>
+                        <option value="Men-Dress">Men-Dress</option>
+                    </select>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please select a category.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="desc">Description:</label>
+                    <textarea name="desc" id="desc" rows="5" placeholder="desc of product" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter Description field.
+                    </div>
+                </div> 
+                
+                <button class="btn btn-sm btn-success sub-btn" type="submit">Add Product</button>
+            </fieldset>
+            
+        </form>
+    </div>
+</div>
+
+
+<script>
+ //iife (immediately invoked functional expression called function as soon as script line hit)
+
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+<%- include('../layouts/footer') %>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    /* background-color: #82f0fc; */
+    background: linear-gradient(90deg, #c596f8 0%, #7cd8fc 100%);
+    padding: 2px 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    font-size: 1.8em;
+    font-weight: bolder;
+    color:#0056b3;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    /* font-family: 'Poppins', sans-serif; */
+  }
+  .navbar-logo {
+    width: 350px; /* Set the desired width */
+    height: 60px; /* Set the desired height */
+    margin-right: 10px;
+    
+  }
+  .navbar-brand:hover {
+    color: #3406ea;
+    text-decoration: none;
+    
+  }
+  
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+  }
+ 
+  
+  
+  .navbar-collapse {
+    justify-content: space-between;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    font-size: 1em;
+    
+    transition: color 0.3s;
+  }
+  .home{
+    font-size: 1.6rem;
+    color: #28089e;
+    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    text-decoration: none;
+    font-family:  'Gill Sans','Poppins';
+    font-weight: bolder;
+    
+  }
+  .nav-icon{
+    font-size: 1.3rem;
+    font-family:  'Gill Sans','Poppins';
+    text-decoration: none;
+    font-weight: bold;
+    color: blueviolet;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .nav-link.active {
+    color: rgb(227, 216, 248);
+    font-weight: bold;
+    
+  }
+  
+  .d-flex a {
+    
+    margin-right: 10px;
+    transition: color 0.3s;
+  }
+  
+  .d-flex a:hover {
+    color: #fafcfe;
+  }
+  
+  .d-flex .fa-cart-shopping {
+    color: #28089e;
+  }
+  
+  .badge {
+    font-size: 0.75em;
+    
+  }
+  
+  .badge.bg-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  .nav-item a.home{
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+  }
+  .nav-item a.home:hover {
+    transform: scale(1.2); /* Makes the item bigger */
+    font-size: 1.7rem; /* Increases the font size */
+    color:white; /* Changes the text color on hover */
+    text-shadow: 0 0 2px palegoldenrod ; /* Glowing effect */
+}
+.nav-item a.home::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #5c0f54;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.8s ease-out;
+}
+
+.nav-item a.home:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.5em;
+    }
+  
+    .navbar-nav .nav-item {
+      margin-right: 10px;
+    }
+  
+    .d-flex a {
+      font-size: 0.9em;
+    }
+  }
+  

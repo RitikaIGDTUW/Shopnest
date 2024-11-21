@@ -1,0 +1,92 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/navbar')%>
+<%-include('../partials/flash')%>
+
+
+<div id="productCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <!-- Carousel Items -->
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="../images/carousel1.jpeg" class="d-block w-100" alt="Product Image 1" style="height: 400px; object-fit: cover;">
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="../images/carousel2.jpeg" class="d-block w-100" alt="Product Image 2" style="height: 400px; object-fit: cover;">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="../images/carousel3.jpeg" class="d-block w-100" alt="Product Image 3" style="height: 400px; object-fit: cover;">
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Products by Category -->
+<% for (let category in categorizedProducts) { %>
+  <div class="category-section mb-4">
+    <button class="btn  text-center my-4 category" style="margin-left: 20px;"> <%= category %> </button>
+
+    <div class="row">
+      <% categorizedProducts[category].forEach(item => { %>
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="card shadow mx-auto position-relative" style="width: 18rem;">
+            <img src="<%=item.img%>" class="card-img-top" alt="..." style="height: 170px; object-fit: cover;">
+            <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:39%;left:5%"><%=item.avgRating%>  &star; | <%=item.reviews.length%></span>
+            <div class="card-body" style="height: 200px;">
+              <div class="d-flex justify-content-between align-items-center">
+                <h2 class="card-title mb-0" style="font-size: 1.25rem;"><%=item.name%></h2>
+                <span class="btn like-btn" product-id="<%=item._id%>">
+                  <% if(currentUser && currentUser.wishList.includes(item._id)){ %>
+                    <i class="fas fa-heart"></i>
+                  <% } else { %>
+                    <i class="far fa-heart"></i>
+                  <% } %>
+                </span>
+              </div>
+              <p class="card-text"><%=item.desc%></p>
+              <h6 class="card-title">
+                <span class="fw-lighter fs-6 text-decoration-line-through">Rs.<%= item.price * 2 %></span> 
+                Rs.<%= item.price %> 
+                <span class="fw-light fs-6 text-warning">( 50 % OFF )</span>
+              </h6>
+              <a href="/products/<%=item._id%>" class="btn btn-info">View Now</a>
+
+              <% if(currentUser && currentUser.role=='seller'){ %>
+                <form class="d-inline-block" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </form>
+              <% } %> 
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+<% } %>
+ 
+
+<script src="/js/common.js"></script>
+<%- include('../layouts/footer') %>
+</body>
+</html>
+
+

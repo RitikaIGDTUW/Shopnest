@@ -1,0 +1,94 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/navbar')%>
+
+<%- include('../partials/flash')%>
+
+<div class="row">    
+        
+            <div class="col-lg-6 mt-3">
+              
+              
+              
+                <div class="card shadow mx-auto" style="width: 18rem;">
+
+                    <img src="<%=foundproduct.img%>" class="card-img-top" alt="..." style="height: 170px; object-fit: cover;">
+                    <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:39%;left:5%"><%=foundproduct.avgRating%>  &star; | <%=foundproduct.reviews.length%></span>
+                    <div class="card-body" style="height: 220px;">
+                      <h2 class="card-title"><%=foundproduct.name%></h2>
+                      
+                      
+                  
+                      <p class="card-text"><%=foundproduct.desc%></p>
+                      <h6 class="card-title"><span class="fw-lighter fs-6 text-decoration-line-through">Rs.<%= foundproduct.price*2 %></span> Rs.<%= foundproduct.price %> <span class="fw-light fs-6 text-warning">( 50 % OFF )</span> </h6>
+                      <%if(currentUser && currentUser.role=='seller'){%>
+                        <a href="/products/<%=foundproduct._id%>/edit" class="btn btn-sm btn-light">Edit</a>
+                      <%}%>  
+
+                      <form method="POST" action="/user/<%=foundproduct._id%>/add" class="d-inline-block">
+                        <!--i need form because cart ke liye post req hit ho rhi h-->
+                        <button class="btn btn-sm btn-info">Add to Cart</button>
+                      </form>
+                      <a href="#" class="btn btn-sm btn-warning">Buy Product</a>
+                      
+                    </div>
+                  </div>
+                
+            </div>  
+            <div class="col-lg-5">
+              <h1 class="display-5" style="font-family: 'poppins','Gill sans'; color: rgb(12, 12, 144);">Leave a Review</h1>
+              <form class="review" action="/products/<%= foundproduct._id %>/review" method="POST">
+                  <div class="mb-3">
+                    <fieldset class="starability-basic">
+                      <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                      <input type="radio" id="first-rate1" name="rating" value="1" aria-label="1 star" />
+                      <label for="first-rate1" title="Terrible">1 star</label>
+                      <input type="radio" id="first-rate2" name="rating" value="2" aria-label="2 stars" />
+                      <label for="first-rate2" title="Not good">2 stars</label>
+                      <input type="radio" id="first-rate3" name="rating" value="3" aria-label="3 stars" />
+                      <label for="first-rate3" title="Average">3 stars</label>
+                      <input type="radio" id="first-rate4" name="rating" value="4" aria-label="4 stars" />
+                      <label for="first-rate4" title="Very good">4 stars</label>
+                      <input type="radio" id="first-rate5" name="rating" value="5" aria-label="5 stars" />
+                      <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+                  
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label" for="comment">Comment:</label>
+                      <textarea class="form-control" rows="3" name="comment" id="comment"></textarea>
+                  </div>
+                  <button class="btn btn-sm btn-success">Add Review</button>
+              </form>
+
+              <div class="my-3">
+                <%for(let review of foundproduct.reviews){%>
+                  <div class="card mt-3">
+                 
+                    <p class="starability-result" data-rating="<%=review.rating%>">
+                      Rated: <%=review.rating%> stars
+                    </p>
+                    <div class="card-body">
+                      <p class="card-text">Comment: <%=review.comment%></p>
+                      <form 
+  action="/products/<%= foundproduct._id %>/review/<%= review._id %>?_method=DELETE" 
+  method="POST" 
+  class="d-inline-block"
+>
+  <button class="btn btn-sm btn-danger">Delete</button>
+</form>
+                    </div>
+                    <p class="mx-3">
+                      <%if(review.createdAt){%>
+                        <%=review.createdAt.toDateString()%>
+                      <%}%>
+                      
+                    </p>
+                  </div>
+               <% }%>
+              </div>
+          </div>
+                
+        
+    
+</div>
+<%- include('../layouts/footer') %>

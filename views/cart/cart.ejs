@@ -1,0 +1,50 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/navbar')%>
+
+
+
+<section class="container">
+    <h1 class="display-6" style="margin-top: 20px; font-family: 'Poppins', 'Gill Sans'; font-weight: bolder; color: rgb(9, 9, 155);">My Cart</h1>
+
+    <div class="row">
+        <div class="col-lg-8">
+            
+            <% for(let item of user.cart){ %>
+                <div class="card mx-auto mb-3" style="max-width: 440px;">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="<%=item.img%>" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=item.name%></h5>
+                          <p class="card-text"><%=item.desc%></p>
+                          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                          <form action="/user/<%=item._id%>/remove?_method=DELETE" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove from Cart</button>
+                        </form>
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <%} %> 
+        </div>
+        <div class="col-lg-4">
+          <ul class="list-group">
+              <% for(let item of user.cart) {%>
+                  <li class="list-group-item"><span class="fw-bold"><%=item.name%> - </span>$ <%=item.price%> <span></span></li>
+              <% } %> 
+              
+          </ul>
+
+          
+
+      </div>
+        
+             
+    </div>
+
+   
+</section>
+<%- include('../layouts/footer') %>

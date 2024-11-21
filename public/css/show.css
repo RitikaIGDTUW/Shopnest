@@ -1,0 +1,213 @@
+/* General Styles */
+/* body {
+    font-family: Arial, sans-serif;
+    
+    background: linear-gradient(90deg, #fcecf8, #faf5c4,#fcecf8);
+
+
+    color: #333;
+} */
+body {
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(90deg, #fff, #fcecf8, #ffe2f8, #f9f5d0, #fff, #fdf7ba, #e2fad3, #d6f8fe, #fff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 18s ease infinite;
+    position: relative; /* For pseudo-element positioning */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        linear-gradient(rgb(232, 194, 252) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(232, 194, 252) 1px, transparent 1px); /* Horizontal and vertical grid lines */
+    background-size: 80px 80px; /* Reduced spacing for better visibility */
+    animation: moveGrid 7s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes moveGrid {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-40px, -40px); /* Creates subtle motion in the grid */
+    }
+}
+
+
+.row {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+h1, h2, h5 {
+    color: #444;
+}
+
+
+/* Button Styles */
+.btn {
+    font-size: 1rem;
+    font-weight: bold;
+    
+    border-radius: 13px;
+}
+
+.btn-info {
+    background-color: #2cc3db;
+    color: #f7f4f4;
+    border: 3px solid whitesmoke;
+    border-radius: 13px;
+}
+
+.btn-warning {
+    color: #333;
+    border-radius: 13px;
+
+}
+
+.btn-success {
+    color: #fff;
+    
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+
+/* Review Section */
+#comment {
+    resize: none;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.my-3 {
+    margin: 1.5rem 0;
+}
+
+/* Flash Message */
+.flash {
+    padding: 10px;
+    background-color: #e9ecef;
+    border-left: 5px solid #007bff;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Layout */
+form {
+    padding: 2px;
+    background-color: #fff;
+    border-radius: 13px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; 
+    transform: translateY(-10px);
+}
+form:hover{
+    transform: scale(1.05); /* Scale the card by 1.05 times */
+    box-shadow: 0 8px 16px rgba(1, 0, 0, 0.6); /* Enhance shadow on hover */
+}
+.review{
+    padding: 15px;
+}
+
+/* Other Adjustments */
+.card-title {
+    font-size: 1.25rem;
+    color: #007bff;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.card-body{
+    padding: 10px;
+    /* height: 200px; */
+
+}
+.card{
+    transition: transform 0.3s ease-in-out; 
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    
+}
+.card:hover {
+    transform: scale(1.05); /* Scale the card by 1.05 times */
+    box-shadow: 0 8px 16px rgba(1, 0, 0, 0.6); /* Enhance shadow on hover */
+    border: 3px solid rgb(231, 190, 250);
+}
+
+.card img{
+    /* height: 270px; */
+    padding: 2px;
+}
+.card-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #313131;
+}
+
+
+.new-form{
+    padding: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: purple;
+}
+
+legend{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    color: darkcyan;
+    font-size: 1.7rem;
+}
+.sub-btn{
+    background-color: rgb(247, 247, 102);
+    color: rgb(81, 14, 144);
+    font-size: 1.3rem;
+}
+
+/* .fas.fa-heart{
+    color: red;
+} */
+.like-btn i.fas.fa-heart {
+    color: red;
+    
+}
+.category{
+    font-size: 1.5em;
+    font-weight: bolder;
+    color:#520669;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(90deg,#befbc2, #fcfccd);
+    border: 3px solid rgb(230, 190, 245);
+}
+
+
