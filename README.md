@@ -8,6 +8,9 @@ ShopNest is a feature-rich e-commerce platform that allows users to browse produ
 - **Cart and Wishlist Management**: Add products to cart and wishlist for future purchases.
 - **Ratings & Reviews**: Users can submit ratings and reviews for products.
 - **Seller Dashboard**: Sellers can add, update, and remove products, set prices, and track inventory.
+
+## Home page of Shopnest
+
   
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
