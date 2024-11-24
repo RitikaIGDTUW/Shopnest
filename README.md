@@ -11,6 +11,28 @@ ShopNest is a feature-rich e-commerce platform that allows users to browse produ
 
 ## Home page of Shopnest
 
+
+https://github.com/user-attachments/assets/17164080-3b6b-4d1e-b12c-7a314387f1e5
+
+## Signup page of Shopnest
+![Signup_page](https://github.com/user-attachments/assets/58604115-377e-4aaa-8bc5-ad6966359421)
+
+## Review and Rating
+
+
+https://github.com/user-attachments/assets/076d9620-5c61-4b38-9022-4664393e0952
+
+## My Cart
+
+![My cart](https://github.com/user-attachments/assets/2950a196-e987-4e07-8b23-76ed0c16f10f)
+
+## Seller adding new product
+
+![image](https://github.com/user-attachments/assets/0027ec1f-97f0-47f4-b763-b651aca2b5c1)
+
+## About Us Page
+![image](https://github.com/user-attachments/assets/c742b12e-0a76-482b-9573-dae69b361c29)
+
   
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
