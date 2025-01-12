@@ -12,17 +12,15 @@ const session=require('express-session');
 const passport=require('passport');
 const LocalStrategy=require('passport-local')
 const User=require('./models/User');
+const dotenv=require('dotenv');
+dotenv.config();
 
 const authroutes=require('./routes/auth')
 const cartRoutes= require('./routes/cart')
 const productApi=require('./routes/api/productapi')
 
 
-
-
-
-
-mongoose.connect('mongodb://127.0.0.1:27017/shopping-rits-app')
+mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
     console.log("db connected successfully")
 })
@@ -87,8 +85,9 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 
+// const PORT=8080;
+const PORT=process.env.PORT
 
-
-app.listen(8080,()=>{
+app.listen(PORT,()=>{
     console.log('server connected at port 8080')
 })
